@@ -75,7 +75,7 @@ void *consumidor(void *args) {
             pthread_cond_wait(&empty_buffer, &m);
         }
         int it = argm->l->front();
-        printf("%d\n", it);
+        //printf("%d\n", it);
         argm->l->pop_front();
         
         if (it < 0) {

@@ -1,0 +1,11 @@
+Relatório sobre Implementação do Programa Produtor/Consumidor em Pthreads
+
+Nome: Eduardo Amaro da Rosa
+
+Conforme proposto na cadeira de Sistema Operacionais, foi desenvolvido um programa que implementa a ideia de Produtor e Consumidor com Pthreads na linguagem de programação C++.
+O programa desenvolvido produtorConsumidorPthreads recebe como entrada quatro argumentos para sua execução, ou seja, quatro valores inteiros que representam respectivamente: o número de iterações por Produtor, o número de Produtores, o número de Consumidores e o tamanho do buffer.
+O programa realiza a criação de threads que representam o Produtor, que recebem como argumento o endereço de memória do buffer e o número de iterações para a adição de números gerados aleatoriamente, realiza o lock no mutex, caso o buffer esteja cheio, aguarda até que um item do buffer seja consumido por um Consumidor para continuar produzindo itens (números gerados aleatoriamente) no buffer, envia um sinal para a variável de condição de que o buffer não se encontra vazio pois produziu um item, e realiza o unlock do mutex. Para cada Produtor, um item com valor “-1” é adicionado ao buffer, para controle do encerramento dos Consumidores.
+Além disso, realiza a criação de threads que representam o Consumidor, que recebem como argumento o endereço de memória do buffer, realiza o lock no mutex, caso o buffer esteja vazio, aguarda até que um item seja produzido por um Produtor para continuar consumindo itens, verifica se o item consumido é um número primo, se sim, mostra na tela seu id e o valor do item consumido, envia um sinal para a variável de condição de que o buffer não se encontra mais cheio pois consumiu um item, realiza o unlock do mutex e, caso o item consumido seja “-1”, encerra sua execução.
+	Exemplo de execução do programa:
+		./program 10 2 2 20
+ 
